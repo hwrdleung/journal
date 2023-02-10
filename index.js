@@ -3,11 +3,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 mongoose.connect(process.env.MONGOOSE_CONNECT_URL)
 .then(() => console.log('Connected to MongoDB \n'));
 
+app.use(cors());
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(bodyParser.raw({ limit: '30mb', extended: true }));

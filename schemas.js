@@ -9,6 +9,7 @@ const JournalEntrySchema = {
 const UserSchema = new mongoose.Schema({
     firstName: {type: String},
     lastName:{type: String},
+    username:{type: String},
     hash:{type: String},
     journalEntries: [JournalEntrySchema]
 })
